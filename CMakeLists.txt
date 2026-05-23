@@ -7,9 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTOMOC ON)      # Для Qt мета-объектов (сигналы/слоты)
 set(CMAKE_AUTORCC ON)      # Для Qt ресурсов (.qrc)
 set(CMAKE_AUTOUIC ON)      # Для Qt UI файлов (.ui)
-set(CMAKE_AUTOUIC_SEARCH_PATHS
-    ${CMAKE_CURRENT_SOURCE_DIR}/ui
-)
+set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/ui)
 
 # Находим Qt6 (или Qt5 как fallback)
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
@@ -21,13 +19,17 @@ set(SOURCES
     src/main.cpp
     src/MainWindow.cpp
     src/CentralWidget.cpp
+    src/ExpanderWidget.cpp
     src/TaskWidget.cpp
 )
 
 set(HEADERS
     src/MainWindow.h
     src/CentralWidget.h
+    src/ExpanderWidget.h
     src/TaskWidget.h
+    src/Styles.h
+    src/DeadlineStatus.h
 )
 
 set(FORMS
@@ -35,8 +37,7 @@ set(FORMS
 )
 
 set(RESOURCES
-    #resources/resources.qrc
-    # Добавь .qrc файл с иконками и т.д.
+    res.qrc
 )
 
 # Создаём исполняемый файл
@@ -51,9 +52,6 @@ add_executable(${PROJECT_NAME} WIN32
 target_link_libraries(${PROJECT_NAME}
     Qt6::Core
     Qt6::Widgets
-    # Добавь другие модули при необходимости:
-    # Qt6::Sql
-    # Qt6::Network
 )
 
 # Windows специфичные настройки

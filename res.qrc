@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/"/>
+    <qresource prefix="/images">
+        <file alias="comment_node.png">images/comment_node.png</file>
+        <file alias="opener_collapsed.png">images/opener_collapsed.png</file>
+        <file alias="opener_expanded.png">images/opener_expanded.png</file>
+    </qresource>
+</RCC>
