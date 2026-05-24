@@ -1,12 +1,23 @@
 #include "MainWindow.h"
 
-#include "CentralWidget.h"
+#include <QStackedWidget>
+
+#include "ControlWidget.h"
 
 month_flow::MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
-	setWindowTitle("MonthFlow - Monthly Task Tracker");
+	setWindowTitle("MonthFlow - Task Tracker");
 	resize(1024, 768);
 
-	const auto widget = new CentralWidget(this);
-	setCentralWidget(widget);
+	CreateUi();
+}
+
+void month_flow::MainWindow::CreateUi()
+{
+	const auto controlWidget = new ControlWidget(this);
+
+	const auto stackedWidget = new QStackedWidget(this);
+	stackedWidget->addWidget(controlWidget);
+
+	setCentralWidget(stackedWidget);
 }

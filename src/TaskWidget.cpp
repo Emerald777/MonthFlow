@@ -43,11 +43,11 @@ void month_flow::TaskWidget::SetDeadlineStatus(DeadlineStatus newStatus)
 	switch (newStatus)
 	{
 	case DeadlineStatus::Far:
-		m_labelDeadlineDay->setProperty("status", "far");
+		m_labelDaysLeft->setProperty("status", "far");
 		break;
 
 	case DeadlineStatus::Approaching:
-		m_labelDeadlineDay->setProperty("status", "approaching");
+		m_labelDaysLeft->setProperty("status", "approaching");
 		break;
 	}
 }
@@ -83,9 +83,13 @@ QHBoxLayout* month_flow::TaskWidget::CreateBaseLineLayout()
 	m_labelName = new QLabel("Task");
 	m_labelName->setObjectName("task");
 
-	m_labelDeadlineDay = new QLabel("5");
+	m_labelDeadlineDay = new QLabel("15");
 	m_labelDeadlineDay->setAlignment(Qt::AlignCenter);
 	m_labelDeadlineDay->setObjectName("deadline");
+
+	m_labelDaysLeft = new QLabel("99");
+	m_labelDaysLeft->setAlignment(Qt::AlignCenter);
+	m_labelDaysLeft->setObjectName("left");
 
 	m_buttonRemove = new QPushButton("X");
 	m_buttonRemove->setFixedSize(20, 20);
@@ -95,6 +99,7 @@ QHBoxLayout* month_flow::TaskWidget::CreateBaseLineLayout()
 	baseLineLayout->addWidget(m_expander);
 	baseLineLayout->addWidget(m_labelName);
 	baseLineLayout->addWidget(m_labelDeadlineDay);
+	baseLineLayout->addWidget(m_labelDaysLeft);
 	baseLineLayout->addWidget(m_buttonRemove);
 	return baseLineLayout;
 }

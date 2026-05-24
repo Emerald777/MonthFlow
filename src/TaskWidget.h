@@ -36,6 +36,7 @@ namespace month_flow
 
 		QLabel* m_labelName = nullptr;
 		QLabel* m_labelDeadlineDay = nullptr;
+		QLabel* m_labelDaysLeft = nullptr;
 
 		QFrame* m_commentPanel = nullptr;
 		QLabel* m_labelComment = nullptr;

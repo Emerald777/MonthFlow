@@ -8,5 +8,8 @@ namespace month_flow
 	{
 	public:
 		MainWindow(QWidget* parent = nullptr);
+
+	private:
+		void CreateUi();
 	};
 }

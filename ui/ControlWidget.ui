@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CentralWidget</class>
- <widget class="QWidget" name="CentralWidget">
+ <class>ControlWidget</class>
+ <widget class="QWidget" name="ControlWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -18,13 +18,38 @@
     <layout class="QHBoxLayout" name="hLayoutButtons">
      <item>
       <widget class="QPushButton" name="buttonAddTask">
+       <property name="minimumSize">
+        <size>
+         <width>120</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="text">
-        <string>Add task</string>
+        <string>Create task</string>
        </property>
       </widget>
      </item>
      <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <widget class="QPushButton" name="buttonClearAll">
+       <property name="minimumSize">
+        <size>
+         <width>120</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="text">
         <string>Clear all tasks</string>
        </property>

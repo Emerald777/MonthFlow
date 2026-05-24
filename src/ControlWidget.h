@@ -2,24 +2,24 @@
 
 #include <QWidget>
 
-#include "ui_CentralWidget.h"
+#include "ui_ControlWidget.h"
 
 #include "TaskWidget.h"
 
 namespace month_flow
 {
-	class CentralWidget : public QWidget
+	class ControlWidget : public QWidget
 	{
 	public:
-		explicit CentralWidget(QWidget* parent = nullptr);
-		~CentralWidget() override;
+		explicit ControlWidget(QWidget* parent = nullptr);
+		~ControlWidget() override;
 
 	public slots:
 		void OnButtonAddClicked();
 		void OnButtonRemoveClick();
 
 	private:
-		Ui::CentralWidget m_ui;
+		Ui::ControlWidget m_ui;
 
 		std::vector<TaskWidget*> m_taskWidgets;
 	};

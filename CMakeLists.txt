@@ -9,41 +9,52 @@ set(CMAKE_AUTORCC ON)      # Для Qt ресурсов (.qrc)
 set(CMAKE_AUTOUIC ON)      # Для Qt UI файлов (.ui)
 set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/ui)
 
-# Находим Qt6 (или Qt5 как fallback)
+# Находим Qt6
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
-
-# Если используешь дополнительные модули Qt, добавь их сюда:
-# find_package(Qt6 REQUIRED COMPONENTS Core Widgets Sql Network)
 
 set(SOURCES
     src/main.cpp
-    src/MainWindow.cpp
-    src/CentralWidget.cpp
-    src/ExpanderWidget.cpp
-    src/TaskWidget.cpp
 )
 
 set(HEADERS
-    src/MainWindow.h
-    src/CentralWidget.h
-    src/ExpanderWidget.h
-    src/TaskWidget.h
     src/Styles.h
     src/DeadlineStatus.h
 )
 
+set(SOURCES_UI
+    src/MainWindow.cpp
+    src/ControlWidget.cpp
+    src/ExpanderWidget.cpp
+    src/TaskWidget.cpp
+    src/NewTaskDialog.cpp
+)
+
+set(HEADERS_UI
+    src/MainWindow.h
+    src/ControlWidget.h
+    src/ExpanderWidget.h
+    src/TaskWidget.h
+    src/NewTaskDialog.h
+)
+
 set(FORMS
-    ui/CentralWidget.ui
+    ui/ControlWidget.ui
+    ui/NewTaskDialog.ui
 )
 
 set(RESOURCES
     res.qrc
 )
 
+source_group("Headers" FILES ${HEADERS})
+source_group("Sources" FILES ${SOURCES})
+source_group("Headers/Ui" FILES ${HEADERS_UI})
+source_group("Sources/Ui" FILES ${SOURCES_UI})
+
 # Создаём исполняемый файл
 add_executable(${PROJECT_NAME} WIN32
-    ${SOURCES}
-    ${HEADERS}
+    ${SOURCES} ${HEADERS}
+    ${SOURCES_UI} ${HEADERS_UI}
     ${FORMS}
     ${RESOURCES}
 )

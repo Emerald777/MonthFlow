@@ -14,6 +14,15 @@ namespace str
 		}
 
 		QLabel#deadline {
+			border: 2px solid #6868d6;
+			background-color: #a6a6e9;
+			border-radius: 5px;
+			font-size: 14px;
+			min-width: 18px;
+			min-height: 18px;
+		}
+
+		QLabel#left {
 			border: 2px solid #686868;
 			background-color: #a6a6a9;
 			border-radius: 5px;
@@ -22,12 +31,12 @@ namespace str
 			min-height: 18px;
 		}
 
-		QLabel[status=far]#deadline {
+		QLabel[status=far]#left {
 			border: 2px solid #48e14b;
 			background-color: #76ec79;
 		}
 
-		QLabel[status=approaching]#deadline {
+		QLabel[status=approaching]#left {
 			border: 2px solid #e4686b;
 			background-color: #ec8689;
 		}
