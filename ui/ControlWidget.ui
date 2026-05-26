@@ -25,7 +25,7 @@
         </size>
        </property>
        <property name="text">
-        <string>Create task</string>
+        <string>Create new task</string>
        </property>
       </widget>
      </item>

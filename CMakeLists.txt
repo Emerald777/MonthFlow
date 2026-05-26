@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 project(MonthFlow)
 
 # Настройки C++
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTOMOC ON)      # Для Qt мета-объектов (сигналы/слоты)
 set(CMAKE_AUTORCC ON)      # Для Qt ресурсов (.qrc)
@@ -20,22 +20,23 @@ set(HEADERS
     src/Styles.h
     src/StackedPages.h
     src/DeadlineStatus.h
+    src/TaskData.h
 )
 
 set(SOURCES_UI
-    src/MainWindow.cpp
-    src/ControlWidget.cpp
-    src/ExpanderWidget.cpp
-    src/TaskWidget.cpp
-    src/NewTaskDialog.cpp
+    src/gui/MainWindow.cpp
+    src/gui/ControlWidget.cpp
+    src/gui/ExpanderWidget.cpp
+    src/gui/TaskWidget.cpp
+    src/gui/NewTaskDialog.cpp
 )
 
 set(HEADERS_UI
-    src/MainWindow.h
-    src/ControlWidget.h
-    src/ExpanderWidget.h
-    src/TaskWidget.h
-    src/NewTaskDialog.h
+    src/gui/MainWindow.h
+    src/gui/ControlWidget.h
+    src/gui/ExpanderWidget.h
+    src/gui/TaskWidget.h
+    src/gui/NewTaskDialog.h
 )
 
 set(FORMS
@@ -93,5 +94,4 @@ endif()
 # Пути для инклудов (если есть кастомные папки)
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
 )

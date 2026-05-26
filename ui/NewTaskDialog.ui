@@ -24,7 +24,11 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="editTaskName"/>
+      <widget class="QLineEdit" name="editTaskName">
+       <property name="placeholderText">
+        <string>My new task</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QGroupBox" name="groupBoxDeadline">
@@ -66,7 +70,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QRadioButton" name="radioSingle">
+           <widget class="QRadioButton" name="radioSingleTask">
             <property name="text">
              <string>Single task</string>
             </property>
@@ -75,10 +79,10 @@
          </layout>
         </item>
         <item>
-         <widget class="QDateEdit" name="dateEdit"/>
+         <widget class="QWidget" name="widgetSingleDeadline" native="true"/>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QWidget" name="widgetPeriodicDeadline" native="true"/>
         </item>
        </layout>
       </widget>
@@ -91,7 +95,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QTextEdit" name="textEdit_2">
+      <widget class="QTextEdit" name="editDescription">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
          <horstretch>0</horstretch>
