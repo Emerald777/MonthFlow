@@ -18,6 +18,7 @@ set(SOURCES
 
 set(HEADERS
     src/Styles.h
+    src/StackedPages.h
     src/DeadlineStatus.h
 )
 

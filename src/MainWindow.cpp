@@ -3,6 +3,7 @@
 #include <QStackedWidget>
 
 #include "ControlWidget.h"
+#include "NewTaskDialog.h"
 
 month_flow::MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
@@ -10,14 +11,33 @@ month_flow::MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 	resize(1024, 768);
 
 	CreateUi();
+	CreateConnections();
 }
 
 void month_flow::MainWindow::CreateUi()
 {
-	const auto controlWidget = new ControlWidget(this);
+	m_controlWidget = new ControlWidget(this);
+	m_newTaskDialog = new NewTaskDialog(this);
 
-	const auto stackedWidget = new QStackedWidget(this);
-	stackedWidget->addWidget(controlWidget);
+	m_stackWidget = new QStackedWidget(this);
+	m_stackWidget->addWidget(m_controlWidget);
+	m_stackWidget->addWidget(m_newTaskDialog);
 
-	setCentralWidget(stackedWidget);
+	SelectPage(StackedPage::Control);
+
+	setCentralWidget(m_stackWidget);
+}
+
+void month_flow::MainWindow::CreateConnections()
+{
+	QObject::connect(m_controlWidget, &ControlWidget::CreateTaskClicked, this,
+		[this](){ SelectPage(StackedPage::NewTaskDialog); });
+
+	QObject::connect(m_newTaskDialog, &NewTaskDialog::FinishClicked, this,
+		[this](){ SelectPage(StackedPage::Control); });
+}
+
+void month_flow::MainWindow::SelectPage(StackedPage page)
+{
+	m_stackWidget->setCurrentIndex(ToInt(page));
 }

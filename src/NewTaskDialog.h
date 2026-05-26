@@ -14,6 +14,12 @@ namespace month_flow
 		explicit NewTaskDialog(QWidget* parent = nullptr);
 		~NewTaskDialog() override;
 
+	signals:
+		void FinishClicked();
+
+	private slots:
+		void OnButtonFinishClicked();
+
 	private:
 		Ui::NewTaskDialog m_ui;
 	};

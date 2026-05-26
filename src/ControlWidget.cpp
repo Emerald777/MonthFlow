@@ -11,14 +11,17 @@ month_flow::ControlWidget::~ControlWidget()
 {
 }
 
-void month_flow::ControlWidget::OnButtonAddClicked()
+void month_flow::ControlWidget::CreateTask()
 {
-	// TODO: add dialog
-
 	const auto newPointWidget = new TaskWidget("New Test task #1", this);
 	QObject::connect(newPointWidget, &TaskWidget::ButtonRemoveClick, this, &ControlWidget::OnButtonRemoveClick);
 	m_taskWidgets.push_back(newPointWidget);
 	m_ui.vLayoutTasks->addWidget(newPointWidget);
+}
+
+void month_flow::ControlWidget::OnButtonAddClicked()
+{
+	emit CreateTaskClicked();
 }
 
 void month_flow::ControlWidget::OnButtonRemoveClick()

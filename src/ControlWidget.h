@@ -10,13 +10,22 @@ namespace month_flow
 {
 	class ControlWidget : public QWidget
 	{
+		Q_OBJECT
+
 	public:
 		explicit ControlWidget(QWidget* parent = nullptr);
 		~ControlWidget() override;
 
+		void CreateTask();
+
+	signals:
+		void CreateTaskClicked();
+
 	public slots:
-		void OnButtonAddClicked();
 		void OnButtonRemoveClick();
+
+	private slots:
+		void OnButtonAddClicked();
 
 	private:
 		Ui::ControlWidget m_ui;
