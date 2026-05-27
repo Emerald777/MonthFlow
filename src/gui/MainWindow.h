@@ -1,13 +1,15 @@
 #pragma once
 
 #include <QMainWindow>
+
 #include "StackedPages.h"
+#include "TaskData.h"
 
 class QStackedWidget;
 
 namespace month_flow
 {
-	class ControlWidget;
+	class TasksViewer;
 	class NewTaskDialog;
 
 	class MainWindow: public QMainWindow
@@ -15,13 +17,16 @@ namespace month_flow
 	public:
 		MainWindow(QWidget* parent = nullptr);
 
+	public slots:
+		void OnTaskCreated(const month_flow::TaskData& taskData);
+
 	private:
 		void CreateUi();
 		void CreateConnections();
 		void SelectPage(StackedPage page);
 
 		QStackedWidget* m_stackWidget = nullptr;
-		ControlWidget* m_controlWidget = nullptr;
+		TasksViewer* m_tasksViewer = nullptr;
 		NewTaskDialog* m_newTaskDialog = nullptr;
 
 	};

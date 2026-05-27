@@ -12,6 +12,7 @@ month_flow::NewTaskDialog::NewTaskDialog(QWidget* parent) : QWidget(parent)
 	UpdateGui();
 
 	QObject::connect(m_ui.buttonCreateTask, &QPushButton::clicked, this, &NewTaskDialog::OnButtonFinishClicked);
+	QObject::connect(m_ui.buttonCancel, &QPushButton::clicked, this, &NewTaskDialog::CancelClicked);
 	QObject::connect(m_ui.radioSingleTask, &QRadioButton::clicked, this, &NewTaskDialog::OnRadioButtonSelected);
 	QObject::connect(m_ui.radioPeriodicTask, &QRadioButton::clicked, this, &NewTaskDialog::OnRadioButtonSelected);
 }
@@ -22,13 +23,13 @@ month_flow::NewTaskDialog::~NewTaskDialog()
 
 void month_flow::NewTaskDialog::OnButtonFinishClicked()
 {
-	data::VariantDeadline newDeadline;
+	VariantDeadline newDeadline;
 	if (IsSingleTaskChosen())
 		newDeadline = m_dateEditSingle->date();
 	else
 		newDeadline = m_spinPeriodic->value();
 
-	const data::Task taskData
+	const TaskData taskData
 	{
 		.name = m_ui.editTaskName->text().toStdString(),
 		.description = m_ui.editDescription->toPlainText().toStdString(),

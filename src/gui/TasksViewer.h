@@ -2,21 +2,22 @@
 
 #include <QWidget>
 
-#include "ui_ControlWidget.h"
+#include "ui_TasksViewer.h"
 
 #include "TaskWidget.h"
+#include "TaskData.h"
 
 namespace month_flow
 {
-	class ControlWidget : public QWidget
+	class TasksViewer : public QWidget
 	{
 		Q_OBJECT
 
 	public:
-		explicit ControlWidget(QWidget* parent = nullptr);
-		~ControlWidget() override;
+		explicit TasksViewer(QWidget* parent = nullptr);
+		~TasksViewer() override;
 
-		void CreateTask();
+		void CreateTask(const TaskData& taskData);
 
 	signals:
 		void CreateTaskClicked();
@@ -28,7 +29,7 @@ namespace month_flow
 		void OnButtonAddClicked();
 
 	private:
-		Ui::ControlWidget m_ui;
+		Ui::TasksViewer m_ui;
 
 		std::vector<TaskWidget*> m_taskWidgets;
 	};

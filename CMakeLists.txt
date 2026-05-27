@@ -25,7 +25,7 @@ set(HEADERS
 
 set(SOURCES_UI
     src/gui/MainWindow.cpp
-    src/gui/ControlWidget.cpp
+    src/gui/TasksViewer.cpp
     src/gui/ExpanderWidget.cpp
     src/gui/TaskWidget.cpp
     src/gui/NewTaskDialog.cpp
@@ -33,14 +33,14 @@ set(SOURCES_UI
 
 set(HEADERS_UI
     src/gui/MainWindow.h
-    src/gui/ControlWidget.h
+    src/gui/TasksViewer.h
     src/gui/ExpanderWidget.h
     src/gui/TaskWidget.h
     src/gui/NewTaskDialog.h
 )
 
 set(FORMS
-    ui/ControlWidget.ui
+    ui/TasksViewer.ui
     ui/NewTaskDialog.ui
 )
 
@@ -52,6 +52,10 @@ source_group("Headers" FILES ${HEADERS})
 source_group("Sources" FILES ${SOURCES})
 source_group("Headers/Ui" FILES ${HEADERS_UI})
 source_group("Sources/Ui" FILES ${SOURCES_UI})
+
+if(MSVC)
+    add_compile_options(/utf-8)
+endif()
 
 # Создаём исполняемый файл
 add_executable(${PROJECT_NAME} WIN32
@@ -88,7 +92,16 @@ if(MSVC)
     # Включаем консоль для отладки (убери WIN32 в add_executable если нужна консоль)
     target_compile_options(${PROJECT_NAME} PRIVATE /W4 /utf-8)
 else()
-    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
+    # MinGW/GCC: включаем максимум предупреждений
+    target_compile_options(${PROJECT_NAME} PRIVATE
+        -Wall -Wextra -Wshadow      # -Wshadow = аналог C4458
+        -Wpedantic                  # строгое соответствие стандарту
+        -Wconversion                # предупреждения о неявных преобразованиях
+        -Wsign-conversion           # знаковые/беззнаковые преобразования
+        -Wunused-parameter          # неиспользованные параметры
+        -Wcast-align                # проблемы с выравниванием
+        -Wnull-dereference          # разыменование нулевого указателя
+    )
 endif()
 
 # Пути для инклудов (если есть кастомные папки)

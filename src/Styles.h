@@ -8,9 +8,6 @@ namespace str
 			border: 1px solid #c0c0c3;
 			background-color: #c3c3c8;
 			padding: 3px;
-			min-width: 18px;
-			max-width: 18px;
-			min-height: 18px;
 		}
 
 		QLabel#deadline {
@@ -18,8 +15,6 @@ namespace str
 			background-color: #a6a6e9;
 			border-radius: 5px;
 			font-size: 14px;
-			min-width: 18px;
-			min-height: 18px;
 		}
 
 		QLabel#left {
@@ -27,8 +22,6 @@ namespace str
 			background-color: #a6a6a9;
 			border-radius: 5px;
 			font-size: 14px;
-			min-width: 18px;
-			min-height: 18px;
 		}
 
 		QLabel[status=far]#left {
@@ -57,7 +50,6 @@ namespace str
 			background-color: #a3a3a8;
 			color: #2c3e50;
 			font-size: 14px;
-			font-weight: bold;
 			padding: 3px;
 		}
 	)";

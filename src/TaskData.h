@@ -5,11 +5,11 @@
 
 #include <variant>
 
-namespace month_flow::data
+namespace month_flow
 {
 	using VariantDeadline = std::variant<int, QDate>; // [periodic day of month, single deadline]
 
-	struct Task
+	struct TaskData
 	{
 		std::string name;
 		std::string description;

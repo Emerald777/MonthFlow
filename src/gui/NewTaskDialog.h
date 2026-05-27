@@ -19,7 +19,8 @@ namespace month_flow
 		~NewTaskDialog() override;
 
 	signals:
-		void FinishClicked(const month_flow::data::Task& data);
+		void FinishClicked(const month_flow::TaskData& data);
+		void CancelClicked();
 
 	private slots:
 		void OnButtonFinishClicked();
