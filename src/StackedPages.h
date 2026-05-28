@@ -4,7 +4,8 @@ namespace month_flow
 {
 	enum class StackedPage
 	{
-		TasksView = 0,
+		ProfileDialog = 0,
+		TasksView,
 		NewTaskDialog
 	};
 

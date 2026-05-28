@@ -11,6 +11,7 @@ namespace month_flow
 {
 	class TasksViewer;
 	class NewTaskDialog;
+	class ProfileDialog;
 
 	class MainWindow: public QMainWindow
 	{
@@ -26,6 +27,7 @@ namespace month_flow
 		void SelectPage(StackedPage page);
 
 		QStackedWidget* m_stackWidget = nullptr;
+		ProfileDialog* m_profileDialog = nullptr;
 		TasksViewer* m_tasksViewer = nullptr;
 		NewTaskDialog* m_newTaskDialog = nullptr;
 

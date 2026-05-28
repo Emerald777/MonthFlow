@@ -21,6 +21,7 @@ namespace month_flow
 
 	signals:
 		void CreateTaskClicked();
+		void ChangeProfileClicked();
 
 	public slots:
 		void OnButtonRemoveClick();

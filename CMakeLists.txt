@@ -29,6 +29,7 @@ set(SOURCES_UI
     src/gui/ExpanderWidget.cpp
     src/gui/TaskWidget.cpp
     src/gui/NewTaskDialog.cpp
+    src/gui/ProfileDialog.cpp
 )
 
 set(HEADERS_UI
@@ -37,11 +38,13 @@ set(HEADERS_UI
     src/gui/ExpanderWidget.h
     src/gui/TaskWidget.h
     src/gui/NewTaskDialog.h
+    src/gui/ProfileDialog.h
 )
 
 set(FORMS
     ui/TasksViewer.ui
     ui/NewTaskDialog.ui
+    ui/ProfileDialog.ui
 )
 
 set(RESOURCES

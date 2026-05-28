@@ -5,6 +5,7 @@ month_flow::TasksViewer::TasksViewer(QWidget* parent) : QWidget(parent)
 	m_ui.setupUi(this);
 
 	QObject::connect(m_ui.buttonAddTask, &QPushButton::clicked, this, &TasksViewer::OnButtonAddClicked);
+	QObject::connect(m_ui.buttonProfile, &QPushButton::clicked, this, &TasksViewer::ChangeProfileClicked);
 }
 
 month_flow::TasksViewer::~TasksViewer()
